@@ -1,9 +1,13 @@
 (ns deps-ancient.deps-ancient
   (:require [ancient-clj.core :as ancient]
-            [clojure.edn :as edn]))
+            [clojure.edn :as edn]
+            [clojure.tools.deps.alpha.reader :as reader]
+            [clojure.string :as str]))
 
 (defn deps-edn []
-  (edn/read-string (slurp "deps.edn")))
+  (let [config-files (:config-files (reader/clojure-env))]
+    (println "Checking" (str/join ", " config-files))
+    (reader/read-deps config-files)))
 
 (defn deps [deps-edn]
   (->> deps-edn
@@ -42,7 +46,7 @@
 
 (comment
   (def deps (deps (deps-edn)))
-
+  deps
 
 (ancient/artifact-outdated? "ancient-clj")
 

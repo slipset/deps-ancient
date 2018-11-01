@@ -1,4 +1,5 @@
-[![Clojars Project](https://img.shields.io/clojars/v/slipset/deps-ancient.svg)]
+[![Clojars Project](https://img.shields.io/clojars/v/deps-ancient.svg)](https://clojars.org/deps-ancient)
+
 # deps-ancient
 
 `deps-ancient` is a small wrapper around [ancient-clj](https://github.com/xsc/lein-ancient/tree/master/ancient-clj) which tells you if your `deps.edn` contains outdated deps.

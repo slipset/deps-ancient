@@ -4,8 +4,6 @@
 
 `deps-ancient` is a small wrapper around [ancient-clj](https://github.com/xsc/lein-ancient/tree/master/ancient-clj) which tells you if your `deps.edn` contains outdated deps.
 
-A Clojure library designed to ... well, that part is up to you.
-
 ## Usage
 
 Merge the following into your `deps.edn`

@@ -5,6 +5,13 @@
 (defn deps-edn []
   (edn/read-string (slurp "deps.edn")))
 
+(defn deps [deps-edn]
+  (->> deps-edn
+       :aliases
+       vals
+       (map :extra-deps)
+       (into (:deps deps-edn))))
+
 (def always-latest? #{"RELEASE" "SNAPSHOT"})
 
 (defn outdated? [[artifact version]]
@@ -28,14 +35,14 @@
 
 (defn -main []
   (->> (deps-edn)
-       :deps
+       deps
        (keep outdated?)
        (print-results!)
        (System/exit)))
 
 (comment
-  (def deps (:deps (deps-edn)))
-deps
+  (def deps (deps (deps-edn)))
+
 
 (ancient/artifact-outdated? "ancient-clj")
 

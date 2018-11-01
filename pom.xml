@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>deps-ancient</groupId>
+  <artifactId>deps-ancient</artifactId>
+  <packaging>jar</packaging>
+  <version>0.0.2</version>
+  <name>deps-ancient</name>
+  <description>A small tool wrapping ancient-clj for checking if your deps.edn deps are ancient</description>
+  <url>https://github.com/slipset/deps-ancient</url>
+  <licenses>
+    <license>
+      <name>Eclipse Public License</name>
+      <url>http://www.eclipse.org/legal/epl-v10.html</url>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:git:git://github.com/slipset/deps-ancient.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/slipset/deps-ancient.git</developerConnection>
+    <tag>0a7cf0967fff5d5b1071f247bb28920f26d46535
+</tag>
+    <url>https://github.com/slipset/deps-ancient</url>
+  </scm>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <testSourceDirectory>test</testSourceDirectory>
+    <resources>
+      <resource>
+        <directory>resources</directory>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>resources</directory>
+      </testResource>
+    </testResources>
+    <directory>target</directory>
+    <outputDirectory>target/classes</outputDirectory>
+    <plugins/>
+  </build>
+  <repositories>
+    <repository>
+      <id>clojars</id>
+      <url>https://repo.clojars.org/</url>
+    </repository>
+  </repositories>
+  <dependencyManagement>
+    <dependencies/>
+  </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.clojure</groupId>
+      <artifactId>clojure</artifactId>
+      <version>RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>ancient-clj</groupId>
+      <artifactId>ancient-clj</artifactId>
+      <version>RELEASE</version>
+    </dependency>
+  </dependencies>
+</project>

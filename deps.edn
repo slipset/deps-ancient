@@ -1,4 +1,4 @@
-{:paths ["resources" "src"]
+{:paths ["src" "resources"]
  :deps {org.clojure/clojure {:mvn/version "RELEASE"}
         ancient-clj {:mvn/version "RELEASE"}}
  :aliases
@@ -9,4 +9,9 @@
                 {:git/url "https://github.com/cognitect-labs/test-runner"
                  :sha "76568540e7f40268ad2b646110f237a60295fa3c"}}
    :main-opts ["-m" "cognitect.test-runner"
-               "-d" "test"]}}}
+               "-d" "test"]}
+  :jar {:extra-deps {pack/pack.alpha
+                     {:git/url "https://github.com/juxt/pack.alpha.git"
+                      :sha "8acf80dd4d6e5173585f5c6fec7af28a310f3ed7"}}
+        :main-opts ["-m" "mach.pack.alpha.skinny" "--no-libs"
+                    "--project-path" "deps-ancient.jar"]}}}

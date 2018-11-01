@@ -1,4 +1,4 @@
-(defproject deps-ancient "0.0.1"
+(defproject deps-ancient "0.0.2"
   :description "A small tool wrapping ancient-clj for checking if your deps.edn deps are ancient"
   :url "https://github.com/slipset/deps-ancient"
   :license {:name "Eclipse Public License"

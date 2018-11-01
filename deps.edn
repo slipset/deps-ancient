@@ -1,7 +1,6 @@
 {:paths ["resources" "src"]
  :deps {org.clojure/clojure {:mvn/version "RELEASE"}
-        ancient-clj {:mvn/version "RELEASE"}
-}
+        ancient-clj {:mvn/version "RELEASE"}}
  :aliases
  {:test {:extra-paths ["test"]
          :extra-deps {org.clojure/test.check {:mvn/version "RELEASE"}}}

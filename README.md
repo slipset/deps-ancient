@@ -12,6 +12,14 @@ Merge the following into your `deps.edn`
            :extra-deps {deps-ancient {:mvn/version "RELEASE"}}}}
 ```
 
+Or, if you're somewhat something, merge this to your `project.clj`
+
+```clojure
+{:plugins [[deps-ancient "0.0.4"]]}
+```
+
+and run `lein deps ancient` to check your `deps.edn` files
+
 ## Inspiration
 
 Thanks to @pmonks for asking for this on the [Clojurians](http://clojurians.net) #leiningen channel

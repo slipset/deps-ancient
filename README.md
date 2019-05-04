@@ -6,11 +6,22 @@
 
 ## Usage
 
-Merge the following into your `deps.edn`
+Merge the following into your `deps.edn` under the `:aliases` key like so:
+
 ```clojure
-{:ancient {:main-opts ["-m" "deps-ancient.deps-ancient"]
-           :extra-deps {deps-ancient {:mvn/version "RELEASE"}}}}
+{:deps    {org.clojure/clojure       {:mvn/version "1.10.0"}
+           org.clojure/clojurescript {:mvn/version "1.10.339"}  }
+
+ :paths   ["src/cljc" "src/cljs" "target" "resources"]
+
+ :aliases {:ancient   {:main-opts  ["-m" "deps-ancient.deps-ancient"]
+                       :extra-deps {deps-ancient {:mvn/version "RELEASE"}}}
+           :fig       {:main-opts ["-m" "figwheel.main"]}
+           :build-dev {:main-opts ["-m" "figwheel.main" "-b" "dev" "-r"]}}
+}
 ```
+
+and invoke via:  `clojure -Aancient`
 
 Or, if you're somewhat something, merge this to your `project.clj`
 

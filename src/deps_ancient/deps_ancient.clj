@@ -5,7 +5,7 @@
             [clojure.string :as str]))
 
 (defn deps-edn []
-  (let [config-files (:config-files (reader/clojure-env))]
+  (let [config-files (reader/default-deps)]
     (println "Checking" (str/join ", " config-files))
     (reader/read-deps config-files)))
 

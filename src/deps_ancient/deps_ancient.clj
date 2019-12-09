@@ -32,7 +32,7 @@
     (do
       (println "The following deps are ancient:")
       (doseq [[artifact versions] outdated-deps]
-        (println (str artifact ": current-version " (:mvn/version versions) ", lastest version " (:latest/version versions))))
+        (println (str artifact ": current-version " (:mvn/version versions) ", latest version " (:latest/version versions))))
       1)
     (do (println "All versions are up to date!")
         0)))

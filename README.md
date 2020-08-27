@@ -21,7 +21,7 @@ Merge the following into your `deps.edn` under the `:aliases` key like so:
 }
 ```
 
-and invoke via:  `clojure -Aancient`
+and invoke via:  `clojure -A:ancient`
 
 Or, if you're somewhat something, merge this to your `project.clj`
 

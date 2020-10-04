@@ -26,7 +26,7 @@ and invoke via:  `clojure -A:ancient`
 Or, if you're somewhat something, merge this to your `project.clj`
 
 ```clojure
-{:plugins [[deps-ancient "0.0.4"]]}
+{:plugins [[deps-ancient "0.0.5"]]}
 ```
 
 and run `lein deps ancient` to check your `deps.edn` files

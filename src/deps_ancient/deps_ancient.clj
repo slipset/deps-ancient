@@ -1,13 +1,11 @@
 (ns deps-ancient.deps-ancient
   (:require [ancient-clj.core :as ancient]
             [clojure.edn :as edn]
-            [clojure.tools.deps.alpha.reader :as reader]
+            [clojure.tools.deps.alpha :as deps]
             [clojure.string :as str]))
 
 (defn deps-edn []
-  (let [config-files (reader/default-deps)]
-    (println "Checking" (str/join ", " config-files))
-    (reader/read-deps config-files)))
+  (deps/find-edn-maps))
 
 (defn deps [deps-edn]
   (->> deps-edn

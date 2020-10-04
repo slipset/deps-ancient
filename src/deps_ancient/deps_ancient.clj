@@ -7,12 +7,27 @@
 (defn deps-edn []
   (deps/find-edn-maps))
 
+(defn extract-deps [edn-type deps-edn]
+  (if (= edn-type :user-edn)
+    (->> deps-edn
+         :user-edn
+         :aliases
+         vals
+         first
+         :extra-deps)
+    (->> deps-edn
+         edn-type
+         :aliases
+         vals
+         (map :extra-deps)
+         (into (:deps deps-edn))
+         (into {}))))
+
 (defn deps [deps-edn]
-  (->> deps-edn
-       :aliases
-       vals
-       (map :extra-deps)
-       (into (:deps deps-edn))))
+  (let [root (extract-deps :root-edn deps-edn)
+        user (extract-deps :user-edn deps-edn)
+        project (extract-deps :project-edn deps-edn)]
+    (merge root user project)))
 
 (def always-latest? #{"RELEASE" "SNAPSHOT"})
 

@@ -1,20 +1,33 @@
 (ns deps-ancient.deps-ancient
   (:require [ancient-clj.core :as ancient]
             [clojure.edn :as edn]
-            [clojure.tools.deps.alpha.reader :as reader]
+            [clojure.tools.deps.alpha :as deps]
             [clojure.string :as str]))
 
 (defn deps-edn []
-  (let [config-files (reader/default-deps)]
-    (println "Checking" (str/join ", " config-files))
-    (reader/read-deps config-files)))
+  (deps/find-edn-maps))
+
+(defn extract-deps [edn-type deps-edn]
+  (if (= edn-type :user-edn)
+    (->> deps-edn
+         :user-edn
+         :aliases
+         vals
+         first
+         :extra-deps)
+    (->> deps-edn
+         edn-type
+         :aliases
+         vals
+         (map :extra-deps)
+         (into (:deps deps-edn))
+         (into {}))))
 
 (defn deps [deps-edn]
-  (->> deps-edn
-       :aliases
-       vals
-       (map :extra-deps)
-       (into (:deps deps-edn))))
+  (let [root (extract-deps :root-edn deps-edn)
+        user (extract-deps :user-edn deps-edn)
+        project (extract-deps :project-edn deps-edn)]
+    (merge root user project)))
 
 (def always-latest? #{"RELEASE" "SNAPSHOT"})
 

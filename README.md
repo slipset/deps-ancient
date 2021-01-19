@@ -2,6 +2,8 @@
 
 # deps-ancient
 
+`deps-ancient` is, well, ancient, so please use https://github.com/liquidz/antq instead.
+
 `deps-ancient` is a small wrapper around [ancient-clj](https://github.com/xsc/lein-ancient/tree/master/ancient-clj) which tells you if your `deps.edn` contains outdated deps.
 
 ## Usage
